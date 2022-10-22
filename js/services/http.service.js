@@ -4,6 +4,7 @@ var urls = {
   ask: 'https://yesno.wtf/api',
   genre:
     'https://api.themoviedb.org/3/genre/movie/list?api_key=497c6c97aae1c9875bd429048ace1c76',
+  poks: 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=0',
 }
 
 const KEY = 'moviesDB'

@@ -20,7 +20,8 @@ img {
 }
 .robot-list,
 .genre-list,
-.movie-list {
+.movie-list,
+.poks-list {
   padding: 2em;
   display: flex;
   flex-wrap: wrap;
