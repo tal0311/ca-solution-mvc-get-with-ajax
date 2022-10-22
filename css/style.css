@@ -1,0 +1,57 @@
+@import './skeleton.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 95vh;
+  width: 95vw;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  max-width: 250px;
+  transform: scale(1.7);
+  opacity: 0.4;
+}
+.robot-list,
+.genre-list,
+.movie-list {
+  padding: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  width: 100%;
+  justify-content: center;
+}
+.robot-preview,
+.movie-preview {
+  border-radius: 1em;
+  box-shadow: 0px 0px 3px 0px #9c9a9a;
+  padding: 0 1em 2em;
+  overflow: hidden;
+  max-width: 250px;
+}
+
+.genre-preview {
+  background: lightpink;
+  color: purple;
+  padding: 1em;
+}
+
+.movie-list {
+  height: 50vh;
+}
+.movie-preview img {
+  position: relative;
+  z-index: -1;
+  height: 100%;
+  object-fit: cover;
+}
+.movie-preview .info-container {
+  transform: translateY(-100%);
+}
