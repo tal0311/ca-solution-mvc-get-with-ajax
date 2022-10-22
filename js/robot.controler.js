@@ -25,8 +25,6 @@ function renderSkeleton(isLoading = true) {
 }
 
 function renderRobots(robots) {
-  if (robots) renderSkeleton(false)
-
   robots
   const strHtmls = robots
     .map((robot) => {

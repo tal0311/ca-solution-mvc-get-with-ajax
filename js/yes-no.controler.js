@@ -15,7 +15,7 @@ function renderJoke({ value }) {
 }
 function renderImg({ message }) {
   const strHtml = `
-  <img src="${message}"/>
+  <img class="dog-img" src="${message}"/>
   `
   $('.ans-container').html(strHtml)
   // document.querySelector().innerHTML = strHtml
