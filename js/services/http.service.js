@@ -7,6 +7,8 @@ var urls = {
   poks: 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=0',
 }
 
+var gPoks = []
+
 const KEY = 'moviesDB'
 var gCache = loadFromStorage(KEY) || {}
 
@@ -18,17 +20,32 @@ function getData(url, cb, name = null) {
     cb(gCache[name])
     return
   }
-  console.log('url:', url)
+
   var XHR = new XMLHttpRequest()
   XHR.onreadystatechange = () => {
     if (XHR.readyState === XMLHttpRequest.DONE && XHR.status === 200) {
       var res = JSON.parse(XHR.responseText)
       if (name) gCache[name] = res
-      console.log(gCache)
       name && saveToStorage(name, gCache)
       cb(res)
     }
   }
   XHR.open('GET', url, true)
   XHR.send()
+}
+
+function savePoks({ name, weight, height, abilities }) {
+  abilities = abilities.map((ability) => ability['ability']['name']).join(' ')
+  const pok = {
+    name,
+    height,
+    weight,
+    abilities,
+  }
+
+  gPoks.push(pok)
+}
+
+function getPoksForCsv() {
+  return gPoks
 }

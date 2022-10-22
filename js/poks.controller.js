@@ -3,10 +3,8 @@ function onInit() {
 }
 
 function renderPoks({ results }) {
-  // console.log('poks:', results)
   const strHtmls = results
     .map((pok) => {
-      console.log('pok:', pok)
       const { name } = pok
       return `
       <article class="pok-preview ${name}">
@@ -16,6 +14,7 @@ function renderPoks({ results }) {
     })
     .join('')
   $('.poks-list').html(strHtmls)
+
   results.forEach(({ url }) => getData(url, renderPok))
 }
 
@@ -29,10 +28,14 @@ function renderPok(pok) {
   let idx = 0
   setInterval(() => {
     if (idx === length) idx = 0
-
     let img = pokImgs[idx]
-    console.log('img:', img)
-    let pokImg = $(`.${name} img`).attr('src', img)
+    $(`.${name} img`).attr('src', img)
     idx++
   }, 2000)
+  savePoks(pok)
+}
+
+function downloadCSV(elLink) {
+  const csvContent = getAsCSV()
+  elLink.href = 'data:text/csv;charset=utf-8,' + csvContent
 }

@@ -18,6 +18,11 @@ img {
   transform: scale(2.1);
   opacity: 0.4;
 }
+a {
+  text-decoration: none;
+  font-size: 5em;
+  color: lightblue;
+}
 input {
   padding: 1em;
   font-size: 0.8em;
